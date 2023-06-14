@@ -23,17 +23,11 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       }
-    })
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
+    });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('users')
+    await queryInterface.dropTable('users');
     /**
      * Add reverting commands here.
      *
