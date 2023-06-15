@@ -12,6 +12,7 @@ const loginDo = async (email, password) => {
   });
 
   if (user.length < 1) return { error: 'Invalid credentials' };
+  
   const payload = {
     id: user.id,
     email: user.email,

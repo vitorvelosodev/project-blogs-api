@@ -1,9 +1,6 @@
 const loginServices = require('../services');
 
-const { env } = process;
-
 const loginController = async (req, res) => {
-  console.log(env);
   const { email, password } = req.body;
 
   const generatedToken = await loginServices.loginDo(email, password);
