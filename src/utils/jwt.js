@@ -6,7 +6,7 @@ const createToken = (payload) =>
   jwt.sign(payload, TOKEN_SECRET);
 
 const verifyToken = (token) =>
-  jwt.verify(token);
+  jwt.verify(token, TOKEN_SECRET);
 
 module.exports = {
   createToken,

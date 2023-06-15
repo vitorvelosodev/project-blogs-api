@@ -10,12 +10,9 @@ const addUser = async (displayName, email, password, image) => {
 
   if (checkUser.length !== 0) return { error: 'user already exists' };
 
-  const user = await User.create({ displayName, email, password, image });
+  await User.create({ displayName, email, password, image });
 
-  const payload = {
-    id: user.id,
-    email: user.email,
-  };
+  const payload = {};
 
   const token = createToken(payload);
 
@@ -24,4 +21,12 @@ const addUser = async (displayName, email, password, image) => {
   };
 };
 
-module.exports = { addUser };
+const getAll = async () => {
+  const allUsers = await User.findAll({
+    attributes: ['id', 'displayName', 'email', 'image'],
+  });
+
+  return allUsers;
+};
+
+module.exports = { addUser, getAll };

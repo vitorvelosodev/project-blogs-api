@@ -1,5 +1,6 @@
 const express = require('express');
 const { loginRouter, userRouter } = require('./routers');
+const verifyJwt = require('./middlewares/verifyJwt');
 // ...
 
 const app = express();
@@ -13,6 +14,10 @@ app.use(express.json());
 
 app.use(loginRouter);
 app.use('/user', userRouter);
+
+app.use(verifyJwt);
+
+app.get('/user', (_req, res) => res.status(200).json({ message: 'ok' }));
 
 // ...
 
