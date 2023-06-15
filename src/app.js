@@ -10,6 +10,7 @@ app.get('/', (_request, response) => {
 });
 
 app.use(express.json());
+
 app.use(loginRouter);
 app.use('/user', userRouter);
 
