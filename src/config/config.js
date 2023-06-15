@@ -1,8 +1,8 @@
-const environment = process.env.NODE_ENV || 'dev';
+const environment = process.env.NODE_ENV || 'test';
 
 const suffix = {
   dev: '-dev',
-  development: '-dev',
+  development: '-development',
   test: '-test',
 };
 
@@ -25,6 +25,9 @@ module.exports = {
     ...options,
   },
   test: {
+    ...options,
+  },
+  dev: {
     ...options,
   },
 };

@@ -1,22 +1,27 @@
 const { User } = require('../models');
+const { createToken } = require('../utils/jwt');
 
-const loginDo = async (req, res) => {
-  const { email, password } = req.body;
-  if (!email || !password) {
-    return res.status(400).json({
-        message: 'Some required fields are missing',
-    }); 
-  }
+const loginDo = async (email, password) => {
+  if (!email || !password) return { error: 'Missing argument' };
 
-  const findUser = await User.findAll({
+  const user = await User.findAll({
     where: {
       email,
+      password,
     },
   });
 
-  return res.status(200).json({
-    findUser,
-  });
+  if (user.length < 1) return { error: 'Invalid credentials' };
+  const payload = {
+    id: user.id,
+    email: user.email,
+  };
+
+  const token = createToken(payload);
+
+  return {
+    token,
+  };
 };
 
 module.exports = { loginDo };
