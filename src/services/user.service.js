@@ -29,4 +29,12 @@ const getAll = async () => {
   return allUsers;
 };
 
-module.exports = { addUser, getAll };
+const getById = async (id) => {
+  const user = await User.findByPk(id, {
+    attributes: ['id', 'displayName', 'email', 'image'],
+  });
+
+  return user;
+};
+
+module.exports = { addUser, getAll, getById };
