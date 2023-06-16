@@ -5,31 +5,25 @@ module.exports = {
     await queryInterface.createTable('posts_categories', {
       post_id: {
         type: Sequelize.INTEGER,
+        primaryKey: true,
         references: {
           model: 'blog_posts',
           key: 'id'
         },
-        // primaryKey: true,
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       },
       category_id: {
         type: Sequelize.INTEGER,
+        primaryKey: true,
         references: {
           model: 'categories',
           key: 'id'
         },
-        // primaryKey: true,
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       }
     });
-    /**
-     * Add altering commands here.
-     *
-     * Example:
-     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
-     */
   },
 
   async down(queryInterface, Sequelize) {
