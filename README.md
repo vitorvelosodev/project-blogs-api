@@ -109,16 +109,6 @@ Aqui estão os principais requisitos do projeto:
 
 - Implemente o endpoint `GET /post` para listar todos os blog posts, incluindo informações sobre o autor e as categorias.
 
-### 14. Endpoint GET /post/:id
-
-- Implemente o endpoint `GET /post/:id` para buscar um blog post pelo ID.
-
-### 15. Endpoint PUT /post/:id
-
-- Implemente o endpoint `PUT /post/:id` para permitir a alteração de um post, desde que o usuário seja o autor do post.
-
-Lembre-se de validar o token nas requisições que exigem autenticação.
-
 ## Configuração
 
 Para executar o projeto, siga estas etapas:
