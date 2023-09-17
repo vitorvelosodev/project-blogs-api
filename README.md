@@ -29,13 +29,18 @@ Certifique-se de que o MySQL local não esteja em execução na porta padrão (3
 
 ## Acessando o Terminal Interativo do Container
 Para acessar o terminal interativo do container onde a aplicação está sendo executada, utilize o seguinte comando:
-docker exec -it blogs_api bash
+   ```bash
+   docker exec -it blogs_api
+   ```
 
 Isso permitirá que você acesse o terminal dentro do container em execução.
 
 ## Instalando Dependências (Dentro do Container)
 Dentro do container, você pode instalar as dependências necessárias com o seguinte comando:
-npm install
+
+   ```bash
+   npm install
+   ```
 
 ### ⚠️ Atenção:
 
